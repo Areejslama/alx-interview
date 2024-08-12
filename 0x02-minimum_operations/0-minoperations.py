@@ -1,19 +1,16 @@
 #!/usr/bin/python3
-"""this script to define function"""
+"""This script defines a function to calculate the fewest number of operations"""
 
 
 def minOperations(n):
-    """define the function"""
+    """Define the function to calculate minimum operations."""
     operation = 0
-
     factor = 2
-    
+
     while n > 1:
         while n % factor == 0:
             operation += factor
-
-        n /= factor
-
+            n //= factor
         factor += 1
 
     return operation
