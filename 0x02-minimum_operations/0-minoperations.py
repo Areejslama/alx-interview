@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This script defines a function to calculate the fewest number of operations"""
+"""This script defines a function to calculate number of operations"""
 
 
 def minOperations(n):
