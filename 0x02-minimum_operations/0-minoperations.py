@@ -4,9 +4,6 @@
 
 def minOperations(n):
     """define the function"""
-    if n == 1:
-        return 0
-
     operation = 0
 
     factor = 2
