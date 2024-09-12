@@ -4,16 +4,10 @@
 
 def rotate_2d_matrix(matrix):
     """define the 2D matrix"""
-    N = len(matrix)
-    for x in range(0, int(N / 2)):
+    n = len(matrix)
+    for i in range(n):
+        matrix[i].reverse()
 
-        for y in range(x, N-x-1):
-            temp = matrix[x][y]
-
-            matrix[x][y] = matrix[y][N-1-x]
-
-            matrix[y][N-1-x] = matrix[N-1-x][N-1-y]
-
-            matrix[N-1-x][N-1-y] = matrix[N-1-y][x]
-
-            matrix[N-1-y][x] = temp
+        for i in range(len(matrix)):
+            for j in range(i, len(matrix)):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
