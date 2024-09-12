@@ -4,25 +4,25 @@
 
 def rotate_2d_matrix(matrix):
     """define the 2D matrix"""
-    N = len(matrix)  # Get the size of the matrix dynamically
+    N = len(matrix)
+    for layer in range(n // 2):
+        first, last = layer, n - layer - 1
 
-    # Consider all squares one by one
-    for x in range(0, N // 2):
-        
-        # Consider elements in groups of 4 in the current square
-        for y in range(x, N - x - 1):
+        for i in range(first, last):
+            # offset keeps track of how far the element is from the 'first'
+            offset = i - first
             
-            # Store the current cell in a temporary variable
-            temp = matrix[x][y]
-
-            # Move values from right to top
-            matrix[x][y] = matrix[y][N - 1 - x]
-
-            # Move values from bottom to right
-            matrix[y][N - 1 - x] = matrix[N - 1 - x][N - 1 - y]
-
-            # Move values from left to bottom
-            matrix[N - 1 - x][N - 1 - y] = matrix[N - 1 - y][x]
-
-            # Assign the temp to the left
-            matrix[N - 1 - y][x] = temp
+            # Save the top element
+            top = mat[first][i]
+            
+            # Move left to top
+            mat[first][i] = mat[last - offset][first]
+            
+            # Move bottom to left
+            mat[last - offset][first] = mat[last][last - offset]
+            
+            # Move right to bottom
+            mat[last][last - offset] = mat[i][last]
+            
+            # Move top to right
+            mat[i][last] = top
