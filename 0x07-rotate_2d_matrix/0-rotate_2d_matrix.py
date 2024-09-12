@@ -4,7 +4,7 @@
 
 def rotate_2d_matrix(matrix):
     """define the 2D matrix"""
-    N = len(matrix)
+    n = len(matrix)
     for layer in range(n // 2):
         first, last = layer, n - layer - 1
 
@@ -13,16 +13,16 @@ def rotate_2d_matrix(matrix):
             offset = i - first
             
             # Save the top element
-            top = mat[first][i]
+            top = matrix[first][i]
             
             # Move left to top
-            mat[first][i] = mat[last - offset][first]
+            matrix[first][i] = matrix[last - offset][first]
             
             # Move bottom to left
-            mat[last - offset][first] = mat[last][last - offset]
+            matrix[last - offset][first] = matrix[last][last - offset]
             
             # Move right to bottom
-            mat[last][last - offset] = mat[i][last]
+            matrix[last][last - offset] = matrix[i][last]
             
             # Move top to right
-            mat[i][last] = top
+            matrix[i][last] = top
