@@ -7,10 +7,8 @@ def makeChange(coins, total):
     if total == 0:
         return 0
     if total < 0:
-        return 0
+        return float('inf')
     if len(coins) == 0:
-        return -1
-    use_coin = makeChange(coins, total - coins[0])
-    skip_coin = makeChange(coins[1:], total)
-    return min(use_coin + 1, skip_coin)
-
+         return float('inf')
+    return min(makeChange(coins[1:], total),
+            makeChange(coins, total - coins[0]) + 1)
